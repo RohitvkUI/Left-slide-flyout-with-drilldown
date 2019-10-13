@@ -1,0 +1,230 @@
+
+
+//Start of shop flyout //
+
+.shop-flyout-wrapper {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    position: $flyout-wrapper-position;
+
+    .modal-dialog {
+        position: $sidebar-position;
+        top: $flyout-top-position;
+        margin: $modalDialog-margin;
+        width: $shop-flyout-width !important;
+        height: calc(100% - 72px);
+        box-shadow: 0 2px 4px 0 $sidebar-box-shadow;
+        background-color: $flyout-background-color;
+
+        .modal-content {
+            height: 100%;
+            width: 100% !important;
+            overflow: $modalContent-overflow;
+            border-radius: 0 !important;
+            border: 0;
+            visibility: $modalContent-visibility;
+
+            .modal-body {
+                padding: 0;
+                height: 100%;
+
+                .shop-flyout-main-nav {
+                    .drilldown {
+                        .list-group {
+                            position: $listGroup-position;
+                            top: 0px;
+                            right: 0;
+                            left: 0;
+                            height: 100%;
+                            margin: 0;
+                            padding: 0;
+
+                            &.active-group {
+                                z-index: $activeGroup-zIndex !important;
+                                visibility: $activeGroup-visibility;
+                                overflow: $listGroup-overflow;
+                            }
+
+                            &.unactive-group {
+                                z-index: $unActiveGroup-zIndex !important;
+                                visibility: $unActiveGroup-visibility;
+                            }
+
+                            &-item {
+                                list-style-type: $listItem-styleType;
+                                width: 100%;
+                                height: $listItem-height;
+                                border-bottom: 1px solid $border-color;
+                                display: $listItem-display;
+                                justify-content: $listItem-justifyContent;
+                                box-sizing: $listItem-boxSizing;
+                                padding-left: $listItem-padding-left;
+                                position: $listItem-position;
+
+                                &__flyout-label {
+                                    margin: 0;
+                                    font-size: $headingText-fontSize;
+                                    flex: calc(100% - 40px);
+                                    line-height: $headingText-lineHeight;
+                                    align-self: $headingText-alignSelf;
+                                    @include text-styles();
+                                }
+
+                                &__close {
+                                    align-self: center;
+                                    font-size: $listItemClose-fontSize;
+                                    font-weight: $listItemClose-fontWeight;
+                                    flex: 0 0 40px;
+                                    text-align: $listItemClose-textAlign;
+                                    color: $listItemClose-color;
+                                    cursor: $listItemClose-cursor;
+                                    border: 0;
+                                    background-color: $listItemClose-backgroundColor;
+                                    margin-right: $listItemClose-marginRight;
+                                }
+                            }
+
+                            &-item--padding {
+                                padding-left: $threeLiItems-paddingLeft;
+                                padding-right: $threeLiItems-paddingRight;
+                            }
+
+                            &-item-last--height {
+                                height: $lastLiItem-height;
+                                flex-direction: $lastLiItem-flexDirection;
+                            }
+
+                            &-item__category-label {
+                                font-size: $categoryLabel-fontSize;
+                                line-height: $categoryLabel-lineheight;
+                                align-self: $categoryLabel-alignSelf;
+                                cursor: $categoryLabel-cursor;
+                                @include text-styles();
+                                @include list-group-item-button-stylings();
+                            }
+
+                            &-item__main-label {
+                                font-size: $mainLabel-fontSize;
+                                line-height: $mainLabel-lineHeight;
+                                align-self: $mainLabel-alignSelf;
+                                cursor: $mainLabel-cursor;
+                                @include text-styles();
+                                @include list-group-item-button-stylings();
+                            }
+
+                            &-item__viewAll-label {
+                                font-size: $viewAllLabel-fontSize;
+                                line-height: $viewAllLabel-lineHeight;
+                                align-self: $viewAllLabel-alignSelf;
+                                @include text-styles();
+                            }
+
+                            &-item__featured {
+                                font-family: $featured-fontFamily;
+                                font-size: $featured-fontSize;
+                                font-weight: $featured-fontWeight;
+                                font-style: $featured-fontStyle;
+                                font-stretch: $featured-fontStretch;
+                                line-height: $featured-lineHeight;
+                                letter-spacing: $featured-letterSpacing;
+                                color: $grey-color-text;
+                                margin-bottom: $featured-marginBottom;
+                            }
+
+                            &-item__featured__main-label {
+                                font-size: $MainLabel-fontSize;
+                                line-height: $MainLabel-lineHeight;
+                                margin-bottom: $MainLabel-marginBottom;
+                                @include text-styles();
+                            }
+
+                            &-item__product-label {
+                                font-size: $productLabel-fontSize;
+                                line-height: $productLabel-lineHeight;
+                                align-self: $productLabel-alignSelf;
+                                @include text-styles();
+                            }
+
+                            &-item__back-label {
+                                font-size: $backLabel-fontSize;
+                                line-height: $backLabel-lineHeight;
+                                align-self: $backLabel-alignSelf;
+                                cursor: $backLabel-cursor;
+                                @include text-styles();
+                            }
+
+                            &-item__arrow-button {
+                                align-self: $arrowButton-alignSelf;
+                                border: 0;
+                                background-color: $arrowButton-backgroundColor;
+
+                                i {
+                                    border: solid $grey-color-text;
+                                    border-width: 0 3px 3px 0;
+                                    display: $arrowButton-i-display;
+                                    padding: $arrowButton-i-padding;
+
+                                }
+
+                                .right {
+                                    transform: rotate(-45deg);
+                                    -webkit-transform: rotate(-45deg);
+                                }
+
+                                .left {
+                                    transform: rotate(135deg);
+                                    -webkit-transform: rotate(135deg);
+                                }
+                            }
+                        }
+                    }
+
+                    .drilldown>ul>li.back-arrow {
+                        display: $first-listItem-backArrow-display !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .modal-backdrop {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: $flyout-top-position;
+        background-color: $backdrop-background-color !important;
+    }
+
+    // -- Mobile
+    @media screen and (max-width:479px) and (min-width: 320px) {
+        @include small-screen-stylings();
+    }
+
+    // -- Tablet
+    @media only screen and (min-width: 480px) and (max-width: 768px) {
+        @include small-screen-stylings();
+    }
+
+    // -- Tablet / Small Desktop
+    @media only screen and (min-width: 769px) and (max-width: 1024px) {
+        @include desktop-screen-stylings();
+    }
+
+    // -- Desktop General
+    @media only screen and (min-width: 1025px) and (max-width: 1279px) {
+        @include desktop-screen-stylings();
+    }
+
+    // -- Desktop Medium Screens
+    @media only screen and (min-width: 1280px) and (max-width: 1439px) {
+        @include desktop-screen-stylings();
+    }
+
+    // -- Desktop Big Screens
+    @media only screen and (min-width: 1440px) {
+        @include desktop-screen-stylings();
+    }
+}
+
+// end of shop flyout

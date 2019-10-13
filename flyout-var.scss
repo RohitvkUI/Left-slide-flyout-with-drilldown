@@ -1,0 +1,203 @@
+$flyout-background-color: #ffffff;
+$grey-color-text: #4b4b4b;
+$border-color: #dedede;
+$sidebar-position:fixed;
+$backdrop-background-color: rgba(0, 0, 0, 0.9);
+$sidebar-box-shadow: rgba(0, 0, 0, 0.5);
+$flyout-top-position:72px;
+$sidebar-elements-letter-spacing:normal;
+$sidebar-elements-font-weight:normal;
+$sidebar-elements-font-style:normal;
+$sidebar-elements-font-stretch:normal;
+$sidebar-elements-font-family:NunitoSans;
+$flyout-wrapper-position:relative;
+$flyout-backdrop-display:none;
+$flyout-top-position-small-screens:56px;
+
+
+// Shop flyOut//
+$ModalDialog-display-smallScreens:none;
+$threeLiItems-paddingLeft-smallScreens:43px;
+$lastLiItem-height-smallScreens:111px;
+$liItems-paddingLeft-smallScreens:13px;
+$headingText-fontSize-smallScreens:18px;
+$main-Featured-labels-fontSize-smallScreens:16px;
+$featured-fontSize-smallScreens:11px;
+$cat-Prod-View-labels-fontSize-smallScreens:14px;
+$ModalDialog-show-display-smallScreens:block;
+$ModalDialog-boxShadow-smallScreens:none;
+$shop-flyout-width:320px;
+$modalDialog-margin:auto;
+$modalContent-overflow:auto;
+$modalContent-visibility:hidden;
+$listGroup-position:absolute;
+$listGroup-overflow:auto;
+$activeGroup-zIndex:1051;
+$activeGroup-visibility:visible;
+$unActiveGroup-zIndex:-1;
+$unActiveGroup-visibility:hidden;
+$listItem-styleType:none;
+$listItem-height:58px;
+$listItem-display:flex;
+$listItem-justifyContent:space-between;
+$listItem-boxSizing:border-box;
+$listItem-padding-left:40px;
+$listItem-position:initial;
+$headingText-fontSize:22px;
+$headingText-lineHeight:1.27;
+$headingText-alignSelf:center;
+$listItemClose-fontSize:36px;
+$listItemClose-fontWeight:300;
+$listItemClose-textAlign:center;
+$listItemClose-color:#4b4b4b;
+$listItemClose-cursor:pointer;
+$listItemClose-backgroundColor:#ffffff;
+$listItemClose-marginRight:-10px;
+$threeLiItems-paddingLeft:69px;
+$threeLiItems-paddingRight:16px;
+$lastLiItem-height:132px;
+$lastLiItem-flexDirection:column;
+$categoryLabel-fontSize:18px;
+$categoryLabel-lineheight:1.33;
+$categoryLabel-alignSelf:center;
+$categoryLabel-cursor:pointer;
+$mainLabel-fontSize:20px;
+$mainLabel-lineHeight:1.3;
+$mainLabel-alignSelf:center;
+$mainLabel-cursor:pointer;
+$viewAllLabel-fontSize:18px;
+$viewAllLabel-lineHeight:1.33;
+$viewAllLabel-alignSelf:center;
+$featured-fontSize:13px;
+$featured-fontFamily:NunitoSans;
+$featured-fontWeight:800;
+$featured-fontStyle:normal;
+$featured-fontStretch:normal;
+$featured-lineHeight:1.54;
+$featured-letterSpacing:1px;
+$featured-marginBottom:8px;
+$MainLabel-fontSize:22px;
+$MainLabel-lineHeight:1.27;
+$MainLabel-marginBottom:16px;
+$productLabel-fontSize:18px;
+$productLabel-lineHeight:1.33;
+$productLabel-alignSelf:center;
+$backLabel-fontSize:22px;
+$backLabel-lineHeight:1.27;
+$backLabel-alignSelf:center;
+$backLabel-cursor:pointer;
+$arrowButton-alignSelf: center;
+$arrowButton-backgroundColor: #ffffff;
+$arrowButton-i-borderColor:#4b4b4b;
+$arrowButton-i-display:inline-block;
+$arrowButton-i-padding:4px;
+$first-listItem-backArrow-display:none;
+
+// End  of variables//
+
+
+
+//start of Shop flyout Mixins //
+
+@mixin text-styles {
+    font-family: $sidebar-elements-font-family;
+    font-weight: $sidebar-elements-font-weight;
+    font-style: $sidebar-elements-font-style;
+    font-stretch: $sidebar-elements-font-stretch;
+    letter-spacing: $sidebar-elements-letter-spacing;
+    color: $grey-color-text;
+}
+
+@mixin list-group-item-button-stylings {
+    border: 0;
+    padding: 0;
+    background-color: $flyout-background-color;
+}
+
+@mixin small-screen-stylings {
+    .modal {
+        .modal-dialog {
+            top: $flyout-top-position-small-screens;
+            height: calc(100% - 56px);
+            width: 100% !important;
+            max-width: 100% !important;
+            display: $ModalDialog-display-smallScreens;
+
+            .modal-content {
+                width: 100%;
+            }
+
+            .list-group {
+                .list-group-item--padding {
+                    padding-left: $threeLiItems-paddingLeft-smallScreens !important;
+                }
+
+                .list-group-item-last--height {
+                    height: $lastLiItem-height-smallScreens !important;
+                }
+
+                .list-group-item--padding-sm {
+                    padding-left: $threeLiItems-paddingLeft-smallScreens !important;
+                }
+
+                .list-group-item__featured__main-label {
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+
+            .list-group-item {
+                padding-left: $liItems-paddingLeft-smallScreens !important;
+
+                &__flyout-label {
+                    font-size: $headingText-fontSize-smallScreens !important;
+                }
+
+                &__main-label,
+                &__featured__main-label {
+                    font-size: $main-Featured-labels-fontSize-smallScreens !important;
+                }
+
+                &__featured {
+                    font-size: $featured-fontSize-smallScreens !important;
+                }
+
+                &__product-label,
+                &__viewAll-label,
+                &__category-label {
+                    font-size: $cat-Prod-View-labels-fontSize-smallScreens !important;
+                }
+            }
+
+        }
+
+        &.in {
+            .modal-dialog {
+                display: $ModalDialog-show-display-smallScreens;
+                box-shadow: $ModalDialog-boxShadow-smallScreens;
+            }
+        }
+    }
+
+    .modal-backdrop {
+        display: $flyout-backdrop-display;
+    }
+}
+
+@mixin desktop-screen-stylings {
+    .modal {
+        .modal-dialog {
+            transform: translate3d(0%, 0, 0);
+            left: -320px;
+            transition: all 0.2s;
+        }
+
+        &.in {
+            .modal-dialog {
+                left: 0 !important;
+            }
+        }
+    }
+}
+
+// End of shop flyout mixins//
